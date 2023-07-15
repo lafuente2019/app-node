@@ -7,12 +7,15 @@ services:
       - compose-bridge
 
   app-nodes:
-      image: aluradocker/alura-books:1.0
+      image: valterlafuentejr/lafuente-books:v1  
       container_name: app-nodes
       networks:
        - compose-bridge
       ports:
         - 3000:3000
+      depends_on:
+        - mongodb
+        
 networks:
   compose-bridge:
     driver: bridge
